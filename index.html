@@ -19,7 +19,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<script>
+		function a(){
+	  $('#myModal').modal("toggle");
+	
+	  $('#myModal').on('shown.bs.modal', function (event) {
+	  // функции
+	  alert ("Выполенно");
+	  });
+	  }
+	</script>
 <script>
 $('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
   console.log(e.target); // вкладка, которая стала активной
@@ -29,17 +38,26 @@ $('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
     </head>
     <body>
         <nav class="navbar navbar-light" style="background-color: #0B791E;">
-            <div class="container">
-                <div class="navbar-header"><a href="#" class="navbar-brand" style="color: yellow;">Правила дорожного движения 2019</a></div>
-                <div>
+            <div class="container-fluid">
+                <div class="navbar-header col-md-3"><a href="#" class="navbar-brand" style="color: yellow;">Правила дорожного движения 2019</a></div>
+                <div class="col-md-6">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html" style="color: yellow;">Новости</a></li>
                         <li> <a href="#" style="color: yellow;">Знаки</a></li>
                         <li> <a href="#" style="color: yellow;">Штрафы</a></li>
                         <li> <a href="#" style="color: yellow;">Разметка</a></li>
                         <li> <a href="#" style="color: yellow;">Тест</a></li>
-                    </ul>
-                </div>
+					</ul>
+				</div>
+				<div class="col-md-2">
+					<ul class="nav navbar-nav dropdown">
+						<li class="dropdown-toggle" data-toggle="dropdown"> <a href="#" style="color: yellow;">Вы не авторизованы <span class="caret"></span></a></li>
+						<ul class="dropdown-menu">
+							<li>Личный кабинет</li>
+							<li>Выйти</li>
+						</ul>
+					</ul>
+				</div>
             </div>
         </nav>   
 
@@ -94,11 +112,67 @@ $('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
 								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите фамилию" name="sname_sup">
 							</div>
 					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Email*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите почту" name="email_sup">
+							</div>
+					</div>
 					<div class="col-sm-8">* - Обязательно для заполнения</div>
-					<input type="submit" class="btn btn-success" value="Присоединиться"/> 
+					<input type="submit" class="btn btn-success" value="Присоединиться" action="a()" data-toggle="modal" data-target="#myModal"/> 
 				</form>
 			</div>
 		  </div>
-		</div>		
+		</div>
+		<footer class="page-footer font-small col-md-12" style=" background-color: rgb(9, 61, 18); position: fixed; left: 0; bottom: 0;">
+				<div class="container-fluid text-center text-md-left" style="color: yellow;">
+				  <div class="row">
+					<div class="col-md-6" style="margin-top:3%;">
+					  <h5 class="text-uppercase">Правила дорожного движения 2019</h5>
+					  <p>Все права защищены</p>			  
+					</div>
+					<div class="col-md-3 mb-md-0 mb-3"></div>
+					<div class="col-md-3 mb-md-0 mb-3">
+					  <h5 class="text-uppercase">Links</h5>			  
+					  <ul class="list-unstyled">
+						<li>
+						  <a href="vk.com/id152568788">Я вконтакте</a>
+						</li>
+						<li>
+						  <a href="#">Пройти тест</a>
+						</li>
+						<li>
+						  <a href="#">Помочь проекту</a>
+						</li>
+						<li>
+						  <a href="index.php">На главную</a>
+						</li>
+					  </ul>		  
+					</div>	  
+				  </div>
+				</div>
+				<div class="footer-copyright text-center py-3" style="margin:1%; color:yellow;">© 2019 Copyright:
+				  <a href="index.php"> https://belorusovcreation.000webhostapp.com</a>
+				</div>
+		</footer>	
+
+	
+		<div id="myModal" class="modal fade" tabindex="-1">
+				<div class="modal-dialog modal-sm">
+				  <div class="modal-content">
+						<div class="modal-header">
+						  <button class="close" data-dismiss="modal">х</button>
+						  <h4 class="modal-title">Продолжение регистрации</h4>
+						</div>
+						<div class="modal-body">Введите ваш код,высланный на почту</div>
+						<div class="modal-body">
+							<input type="text" name="code" placeholder="Код"/>
+						</div>
+						<div class="modal-footer">
+						  <button class="btn btn-primary" data-dismiss="modal">Подтвердить</button>
+					  </div>
+				  </div>
+				</div>
+		  </div>
     </body>
 </html>

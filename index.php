@@ -1,13 +1,15 @@
 <?php
-    require_once "header.php";
-	
+	require_once "header.php";
+	if(isset($_SESSION['lname']) && isset($_SESSION['fname'])){
+		header("Location: feed.php");
+	}
 	$login = "";
 	if(isset($_POST['auth'])){
 		if(isset($_POST['login_auth'])){
 			$login = htmlentities($_POST['login_auth']); 
 			$res = mysqli_query($connection,"Select * From Users Where Login='$login';");
 			if($res==true){
-				echo "succeful query!";
+				echo "successful query!";
 				$result = mysqli_fetch_assoc($res);
 				if($result['Login']==$login){
 					echo "есть такой логин!" ;
@@ -17,7 +19,7 @@
 					exit();
 				}
 			 }else{
-				 echo 'no succeful query!';
+				 echo 'no successful query!';
 				 
 			 }
 		}
@@ -32,32 +34,47 @@
 						echo "Успееех!";
 						$_SESSION['login']=$result['Login'];
 						$_SESSION['password']=$result['Password'];
-						$_SESSION['fname']=$result['First Name'];
-						$_SESSION['lname']=$result['Last Name'];
+						$_SESSION['fname']=$result['FirstName'];
+						$_SESSION['lname']=$result['LastName'];
+						$_SESSION['email']=$result['Email'];
 						header("Location: feed.php");
-						//exit();
 					}
 					else{
 						echo "Пароли не совпали!";
 					}
 				}else{
-					echo 'no succeful query!';					
+					echo 'no successful query!';					
 				}
 			}
 		}
 	}
 	else if(isset($_POST['sup'])){
 		if(isset($_POST['login_sup'])){
-			
-		}
-		if(isset($_POST['pass_sup'])){
-			
-		}
-		if(isset($_POST['fname_sup'])){
-			
-		}
-		if(isset($_POST['sname_sup'])){
-			
+			$login = $_POST['login_sup'];
+			$result = mysqli_query($connection,"Select * From Users Where Login='$login';");
+			if($result==true){
+				$res = mysqli_fetch_assoc($result);
+				if($res['Login']!= $login){
+					echo "Такого имени нет!";
+					if(isset($_POST['pass_sup'])&&isset($_POST['fname_sup'])&&isset($_POST['sname_sup'])&&isset($_POST['email_sup'])){
+						$data = [
+							"login_sup" => $login,
+							"pass_sup" => $_POST['pass_sup'],
+							"fname_sup" => $_POST['fname_sup'],
+							"sname_sup" => $_POST['sname_sup'],
+							"email_sup" => $_POST['email_sup']
+						];
+						$_SESSION['sup_data_completion'] = $data;
+						header("Location: completion.php");
+						
+					}
+				}else{
+					echo "такое имя есть!";
+				}
+			}
+			else{
+				echo "оч странная ошибка!";
+			}
 		}
 	}
 ?>
@@ -91,7 +108,7 @@
 					<div class="form-group has-success">
 							<label for="pass" class="col-sm-2 control-label">Логин*</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите логин" name="login_sup" value="<?php echo @$_POST['login_sup'] ?>">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите логин" name="login_sup" >
 							</div>
 					</div>
 					<div class="form-group has-success">
@@ -109,7 +126,13 @@
 					<div class="form-group has-success">
 							<label for="pass" class="col-sm-2 control-label">Фамилия*</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите фамилию" name="sname_sup" <?php echo @$_POST['sname_sup'] ?>">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите фамилию" name="sname_sup" value="<?php echo @$_POST['sname_sup'] ?>">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Email*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите почту" name="email_sup" value="<?php echo @$_POST['email_sup'] ?>">
 							</div>
 					</div>
 					<div class="col-sm-8">* - Обязательно для заполнения</div>
@@ -118,3 +141,25 @@
 			</div>
 		 </div>
 	</div>
+	<!-- <div id="myModal" class="modal fade" tabindex="-1">
+				<div class="modal-dialog modal-sm">
+				  	<div class="modal-content">
+						<div class="modal-header">
+						  <button class="close" data-dismiss="modal">х</button>
+						  <h4 class="modal-title">Продолжение регистрации</h4>
+						</div>
+						<div class="modal-body">Введите ваш код,высланный на почту</div>
+							<form action="completion.php" method="POST">
+								<div class="modal-body">
+										<input type="text" name="codecompletion" placeholder="Код"/>
+								</div>
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-primary" data-dismiss="modal" value="Подтвердить"/>
+								</div>
+							</form>
+				  		</div> s
+				</div>
+	</div>-->
+	<?php
+		require_once "footer.php";
+	?>

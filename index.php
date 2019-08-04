@@ -1,7 +1,7 @@
 <?php
 	require_once "header.php";
 	if(isset($_SESSION['lname']) && isset($_SESSION['fname'])){
-		header("Location: feed.php");
+		header("Location: feed.php/?page=1");
 	}
 	$login = "";
 	if(isset($_POST['auth'])){
@@ -37,7 +37,7 @@
 						$_SESSION['fname']=$result['FirstName'];
 						$_SESSION['lname']=$result['LastName'];
 						$_SESSION['email']=$result['Email'];
-						header("Location: feed.php");
+						header("Location: feed.php/?page=1");
 					}
 					else{
 						echo "Пароли не совпали!";

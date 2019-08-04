@@ -8,7 +8,8 @@
         <title>Main page</title>
 
         <!-- Bootstrap -->
-        <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+        <!--<link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,8 +62,8 @@ $('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
             </div>
         </nav>   
 
-		<div class="col-sm-8"></div>
-		<div class="col-sm-4" style=" background-color: #EEDDFF; border: 0px solid blue; border-radius: 15px;"><!---->
+		<!-- <div class="col-sm-8"></div>
+		<div class="col-sm-4" style=" background-color: #EEDDFF; border: 0px solid blue; border-radius: 15px;">
 		  <ul class="nav nav-pills" role="tablist">
 			<li class="active"><a href="#home" role="tab" data-toggle="pill">Авторизация</a></li>
 			<li><a href="#profile" role="tab" data-toggle="pill">Регистрация</a></li>
@@ -123,8 +124,79 @@ $('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
 				</form>
 			</div>
 		  </div>
+		</div> -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-md-push-8 fixed-right" style="border: 1px gray solid; border-radius: 10px; margin: 1%; ">
+					<p class="text-center">Самые читаемые посты</p>
+					<div>
+						<p style="font-weight:bold;"><a href="#">Title</a></p>
+						<small style="color:gray;">Data: 12-05-2019</small>
+						<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+						<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+								Short text Short text Short text
+						</p>
+					</div>
+					<div>
+							<p style="font-weight:bold;"><a href="#">Title</a></p>
+							<small style="color:gray;">Data: 12-05-2019</small>
+							<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+							<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+									Short text Short text Short text
+							</p>
+					</div>
+					<div>
+							<p style="font-weight:bold;"><a href="#">Title</a></p>
+							<small style="color:gray;">Data: 12-05-2019</small>
+							<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+							<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+									Short text Short text Short text
+							</p>
+					</div>
+				</div>
+				<div class="col-md-1" style="border: 1px gray solid; border-radius: 10px; position:fixed;"></div>
+				<div class="col-md-8 col-md-pull-4" style="border: 1px gray solid; border-radius: 10px; margin: 1%;"><!--margin: 1%;-->
+					<h1>Title</h1>
+					<small style="color:gray;">Data: 12-05-2019</small>
+					<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+					<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+					</p>
+					<p class="col-md-4"><a href="#">Читать полностью...</a></p>
+					<p class="col-md-4 text-center"><a href="#">Автор: Олег Белорусов</a></p>
+					<p class="col-md-4 text-right ">Просмотров <span class="badge"> 10 </span></p>
+				</div>
+				<div class="col-md-8 col-md-pull-4" style="border: 1px gray solid; border-radius: 10px; margin: 1%;"><!--margin: 1%;-->
+					<h1>Title</h1>
+					<small style="color:gray;">Data: 12-05-2019</small>
+					<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+					<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+					</p>
+					<p class="col-md-4"><a href="#">Читать полностью...</a></p>
+					<p class="col-md-4 text-center"><a href="#">Автор: Олег Белорусов</a></p>
+					<p class="col-md-4 text-right ">Просмотров <span class="badge"> 10 </span></p>
+				</div>
+				<div class="col-md-8 col-md-pull-4" style="border: 1px gray solid; border-radius: 10px; margin: 1%;"><!--margin: 1%;-->
+					<h1>Title</h1>
+					<small style="color:gray;">Data: 12-05-2019</small>
+					<img class ="img-responsive img-thumbnail img-rounded" src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/model/URUS/restyle/urus-configuratore-new.jpg"/>
+					<p>Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+						Short text Short text Short text Short text Short text Short text Short text Short text Short text 
+					</p>
+					<p class="col-md-4"><a href="#">Читать полностью...</a></p>
+					<p class="col-md-4 text-center"><a href="#">Автор: Олег Белорусов</a></p>
+					<p class="col-md-4 text-right ">Просмотров <span class="badge"> 10 </span></p>
+				</div>
+			</div>
 		</div>
-		<footer class="page-footer font-small col-md-12" style=" background-color: rgb(9, 61, 18); position: fixed; left: 0; bottom: 0;">
+		<div class="container text-center">
+			<p><a href="#">Предыдущая</a> Страницa: 1 <a href="#">Следующая</a></p> 
+		</div>
+		<footer class="page-footer font-small col-md-12" style=" background-color: rgb(9, 61, 18);  left: 0; bottom: 0;"><!--position: fixed;-->
 				<div class="container-fluid text-center text-md-left" style="color: yellow;">
 				  <div class="row">
 					<div class="col-md-6" style="margin-top:3%;">

@@ -1,0 +1,143 @@
+.fullwidth-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+    
+.video-layer{
+    background: rgba(0,0,0,0.0);
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.video-layer h1 {
+    text-align:center;
+    color:#fff;
+    font-size: 70px;
+    margin-top: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    color: #fff;
+    font-size: 35px;
+    padding: 10px 10px;
+}
+
+html,body{
+    height:100%;
+}
+
+#wrap:after{
+content: "";
+display: block;
+}
+
+#wrap {
+margin-bottom: 5%;
+min-height:75%;
+}
+
+#wrap:after{
+height: 100%;
+}
+
+#text h1 {
+color: rgba(0,0,0,0.6);
+text-shadow: 0px 3px 0px #b2a98f,
+            0px 14px 10px rgba(0,0,0,0.15),
+            0px 24px 2px rgba(0,0,0,0.1),
+            0px 34px 30px rgba(0,0,0,0.1);
+}
+
+.anim-show{
+    display: inline-block;
+    /*width: 500px;*/
+    /* background: #176387; */
+    color: #fff;
+    font-size: 25px;
+    /* border: 3px solid #2BA2DB; */
+    padding: 20px;
+    /* margin: auto; */
+    margin-bottom: 20px;
+    text-align: center;
+    opacity: 0;
+    transition: 1s;
+    animation: show 3s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+
+
+        /*width:300px;*/
+        /* background:#176387; */
+        /*color:#fff;*/
+        /*font-size:25px;*/
+        /* border:3px solid #2BA2DB; */
+        /*padding:20px;*/
+        /*margin:auto;*/
+        /*margin-bottom:20px;*/
+        /*text-align:center;*/
+        /*opacity:0; Элемент полностью прозрачный (невидимый)*/
+        /*transition: 1s; Скорость перехода состояния элемента*/
+        /*animation: show 3s 1;  Указываем название анимации, её время и количество повторов*/
+        /*animation-fill-mode: forwards;  Чтобы элемент оставался в конечном состоянии анимации */
+        /*animation-delay: 1s;  Задержка перед началом */
+}
+
+@keyframes show{
+    0%{
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 700px) {
+    .fullwidth-bg {
+        background-image: url('bg.jpg');
+        width: 100%;
+        height: 100%;
+        /*background-color: #000;*/
+        /*display: none;*/
+    }
+
+    .video-layer h1{
+        font-size: 40px;
+    }
+
+    .fullwidth-bg__video {
+        display: none;
+    }
+
+    .video{
+        display: none;
+    }
+
+    .video-layer{
+        background-image: url('bg.jpg');
+    }
+
+    .signin-active a{
+        font-size: 20px;
+    }
+
+    .signup-inactive a{
+        font-size: 25px;
+    }
+
+    label{
+        font-size: 25px;
+    }
+
+
+
+
+}

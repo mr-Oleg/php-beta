@@ -70,5 +70,5 @@
     </div>
 </div>
 <?php
-    require_once "footer.php";
+    require_once "footer_1.php";
 ?>

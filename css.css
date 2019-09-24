@@ -72,6 +72,20 @@
     animation-iteration-count: 1;
 }
 
+html,body{
+    height:100%;
+}
+#wrap:after{
+    content: "";
+    display: block;
+}
+#wrap {
+    margin-bottom: 5%;
+    min-height:75%;
+}
+#wrap:after{
+    height: 100%;
+}
 
 .visible_1
 {
@@ -111,8 +125,49 @@
 {
     display:block;
 } 
-
 .visible_markup_2
 {
+    display:none;
+}
+
+.visible_fines_1{
+    display:block;
+}
+.visible_fines_2{
+    display:none;
+}
+.visible_fines_3{
+    display:none;
+}
+.visible_fines_4{
+    display:none;
+}
+.visible_fines_5{
+    display:none;
+}
+.visible_fines_6{
+    display:none;
+}
+.visible_fines_7{
+    display:none;
+}
+.visible_fines_8{
+    display:none;
+}
+.visible_fines_9{
+    display:none;
+}
+
+.visible_courses_1{
+    display:block;
+}
+.visible_courses_2{
+    display:none;
+}
+
+.visible_lection_1{
+    display:block;
+}
+.visible_lection_2{
     display:none;
 }

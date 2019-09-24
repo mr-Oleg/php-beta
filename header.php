@@ -11,6 +11,22 @@
         <title>Main page</title>
         <!--<link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">-->
         <!---->
+        <style>
+          html,body{
+            height:100%;
+          }
+          #wrap:after{
+            content: "";
+            display: block;
+          }
+          #wrap {
+            margin-bottom: 5%;
+            min-height:75%;
+          }
+          #wrap:after{
+            height: 100%;
+          }
+        </style>
         <link rel="stylesheet" href="css.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -31,198 +47,58 @@
 	            });
 	        }
         </script>
-        <script>
-            function show_markup_1(){
-                var a = document.getElementsByClassName("visible_markup_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_markup_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_markup_2(){
-                var a = document.getElementsByClassName("visible_markup_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_markup_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-        </script>
-        <script>
-            function show_1(){
-                var a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_2(){
-                var a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_3(){
-                var a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_4(){
-                var a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_5(){
-                var a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_6(){
-                var a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_7(){
-                var a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-            function show_8(){
-                var a = document.getElementsByClassName("visible_8");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'block';
-                a = document.getElementsByClassName("visible_2");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_3");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_4");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_5");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_6");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_7");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-                a = document.getElementsByClassName("visible_1");
-                for(var i=0; i<a.length; i++) a[i].style.display = 'none';
-            }
-        </script>
+        
         </head>
         <body>
-            <nav class="navbar navbar-light" style="background-color: #0B791E;">
-                <div class="container-fluid">
-                    <div class="navbar-header col-md-3"><a href="#" class="navbar-brand" style="color: yellow;">Правила дорожного движения 2019</a></div>
-                    <div class="col-md-6">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html" style="color: yellow;">Новости</a></li>
-                            <li> <a href="#" style="color: yellow;">Знаки</a></li>
-                            <li> <a href="#" style="color: yellow;">Штрафы</a></li>
-                            <li> <a href="#" style="color: yellow;">Разметка</a></li>
-                            <li> <a href="#" style="color: yellow;">Тест</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="nav navbar-nav dropdown">
-                            <?php
-                                    if(isset($_SESSION['fname'])){
-                                        $fname = $_SESSION['fname'];
-                                        $lname = $_SESSION['lname'];
-                                        echo "<li class='dropdown-toggle' data-toggle='dropdown'> <a href='#' style='color: yellow;'>" . $fname . " " . $lname . "<span class='caret'></span></a></li>
-                                            <ul class='dropdown-menu'>
-                                                <li><a href='#'>Личный кабинет</a></li>
-                                                <li><a href='logout.php'>Выйти</a></li>
-                                            </ul>";
-                                    }else{
-                                        echo "<li> <a href='#' style='color: yellow;'>Вы не авторизованы</a></li>";
+            <div id="wrap">
+                <nav class="navbar navbar-default" style="background-color: #0B791E;"><!--light-->
+                    <div class="container-fluid">
+                        <div class="navbar-header col-md-3">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main"><!----> 
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button><!---->
+                            <a href="index.php" class="navbar-brand" style="color: yellow;">Правила дорожного движения 2019</a>
+                        </div>
+                        <div class="col-md-6 collapse navbar-collapse" id="navbar-main"><!--collapse navbar-collapse" id="navbar-main"-->
+                            <ul class="nav navbar-nav">
+                                <!-- <li><a href="index.php" style="color: yellow;">Новости</a></li>
+                                <li> <a href="signs.php" style="color: yellow;">Знаки</a></li>
+                                <li> <a href="fines.php" style="color: yellow;">Штрафы</a></li>
+                                <li> <a href="markup.php" style="color: yellow;">Разметка</a></li>
+                                <li> <a href="#" style="color: yellow;">Тест</a></li> -->
+
+                                <?php
+                                    $temporary = mysqli_query($connection,"Select * From Sections Where isActive = 1;");
+                                    while($results = mysqli_fetch_assoc($temporary)){
+                                        $title = $results['Name'];
+                                        $url = $results['Url'];
+                                        echo '<li><a href="' . $url . '" style="color: yellow;">' . $title . '</a></li>';
                                     }
-                            ?>
-                        </ul>
+                                ?>
+
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <ul class="nav navbar-nav dropdown">
+                                <?php
+                                        if(isset($_SESSION['fname'])){
+                                            $fname = $_SESSION['fname'];
+                                            $lname = $_SESSION['lname'];
+                                            echo "<li class='dropdown-toggle' data-toggle='dropdown'> <a href='#' style='color: yellow;'>" . $fname . " " . $lname . "<span class='caret'></span></a></li>
+                                                <ul class='dropdown-menu'>
+                                                    <li><a href='profile.php'>Личный кабинет</a></li>
+                                                    <li><a href='logout.php'>Выйти</a></li>
+                                                </ul>";
+                                        }else{
+                                            echo "<li> <a href='#' style='color: yellow;'>Вы не авторизованы</a></li>";
+                                        }
+                                ?>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>                
-        </body>
-    </html>
+                </nav>   
+                         
+        <!-- </body>
+    </html> -->

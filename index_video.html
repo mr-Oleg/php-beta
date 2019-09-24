@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:700,400&subset=cyrillic,latin,greek,vietnamese">
+        <title>Main page</title>
+        <style>
+            /* .fullwidth-bg {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                padding-top:45%;
+                overflow: hidden;
+                z-index: -100;
+            } */
+            
+             .fullwidth-bg__video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .video-layer{
+                background: rgba(0,0,0,0.0);
+                position: absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                z-index: 5;
+            }
+            
+            .video-layer h1 {
+                text-align:center;
+                color:#fff;
+                font-size: 70px;
+                margin-top:17%;
+            }
+            @media (max-width: 767px) {
+                .fullwidth-bg {
+                    background: url('/uploads/video-bg-alt.jpg') center center / cover no-repeat;
+                }
+            
+                .fullwidth-bg__video {
+                    display: none;
+                }
+            }
+
+            html,body{
+            height:100%;
+          }
+          #wrap:after{
+            content: "";
+            display: block;
+          }
+          #wrap {
+            margin-bottom: 5%;
+            min-height:75%;
+          }
+          #wrap:after{
+            height: 100%;
+          }
+          #text h1 {
+            color: rgba(0,0,0,0.6);
+            text-shadow: 0px 3px 0px #b2a98f,
+                        0px 14px 10px rgba(0,0,0,0.15),
+                        0px 24px 2px rgba(0,0,0,0.1),
+                        0px 34px 30px rgba(0,0,0,0.1);
+          }
+          .anim-show{
+                width:300px;
+                /* background:#176387; */
+                color:#fff;
+                font-size:25px;
+                /* border:3px solid #2BA2DB; */
+                padding:20px;
+                margin:auto;
+                margin-bottom:20px;
+                text-align:center;
+                opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+                transition: 1s; /*Скорость перехода состояния элемента*/
+                animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
+                animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+                animation-delay: 1s; /* Задержка перед началом */
+        }
+        @keyframes show{
+            0%{
+            opacity:0;
+            }
+            100% {
+            opacity:1;
+            }
+        }
+        </style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+		function a(){
+	  $('#myModal').modal("toggle");
+	
+	  $('#myModal').on('shown.bs.modal', function (event) {
+	  alert ("Выполенно");
+	  });
+	  }
+	</script>
+<script>
+$('a[data-toggle="pill"]').on('hidden.bs.tab', function (e) {
+  console.log(e.target); // вкладка, которая стала активной
+  console.log(e.relatedTarget); // предыдущая активная вкладка
+})
+</script>
+    </head>
+    <body>
+        <!--<div id="wrap">
+         <nav class="navbar navbar-light" style="background-color: #0B791E;">  -->
+                <!-- <nav class="navbar navbar-default" style="background-color: #0B791E;"><!--light
+                    <div class="container-fluid">
+                        <div class="navbar-header col-md-3">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="index.php" class="navbar-brand" style="color: yellow;">Правила дорожного движения 2019</a>
+                        </div>
+                        <div class="col-md-6 collapse navbar-collapse" id="navbar-main"><!--collapse navbar-collapse" id="navbar-main"
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.php" style="color: yellow;">Новости</a></li>
+                                <li> <a href="signs.php" style="color: yellow;">Знаки</a></li>
+                                <li> <a href="fines.php" style="color: yellow;">Штрафы</a></li>
+                                <li> <a href="markup.php" style="color: yellow;">Разметка</a></li>
+                                <li> <a href="#" style="color: yellow;">Тест</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2">
+                            <ul class="nav navbar-nav dropdown">
+                                <li> <a href='#' style='color: yellow;'>Вы не авторизованы</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>    -->
+        <div class="fullwidth-bg">
+            <div class="container">
+                <div class="video-layer row">
+                    <div class="col-md-6 anim-show text-center">
+                        <h1 id="text">Лучшее время начать учиться - сейчас!</br> Присоединяйтесь!</h1>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4" style=" background-color: #EEDDFF; border: 0px solid blue; border-radius: 15px;">
+		  <ul class="nav nav-pills" role="tablist">
+			<li class="active"><a href="#home" role="tab" data-toggle="pill">Авторизация</a></li>
+			<li><a href="#profile" role="tab" data-toggle="pill">Регистрация</a></li>
+		  </ul>
+		  <div class="tab-content" >
+			<div role="tabpanel" class="tab-pane active" id="home" style="margin:2%;">
+				<form class="form-horizontal">
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Логин</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите логин" name="login_auth">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Пароль</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control input-xs" id="pass" placeholder="Введите пароль" name="pass_auth">
+							</div>
+					</div>
+					<div class="col-sm-10"></div>
+					<input type="submit" class="btn btn-success" value="Войти"/> 
+				</form>
+			</div>
+			<div role="tabpanel" class="tab-pane " id="profile" style="margin:2%;">
+				<form class="form-horizontal">
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Логин*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите логин" name="login_sup">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Пароль*</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control input-xs" id="pass" placeholder="Введите пароль" name="pass_sup">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Имя*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите имя" name="fname_sup">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Фамилия*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите фамилию" name="sname_sup">
+							</div>
+					</div>
+					<div class="form-group has-success">
+							<label for="pass" class="col-sm-2 control-label">Email*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control input-xs" id="pass" placeholder="Введите почту" name="email_sup">
+							</div>
+					</div>
+					<div class="col-sm-8">* - Обязательно для заполнения</div>
+					<input type="submit" class="btn btn-success" value="Присоединиться" action="a()" data-toggle="modal" data-target="#myModal"/> 
+				</form>
+			</div>
+		  </div>
+		</div>
+                    </div>
+                </div>
+            </div>
+            <video style="width:100%; margin-top:-5%;" loop muted autoplay poster="/uploads/video-bg-alt.jpg" class="fullscreen-bg__video">
+                <source src="C:/Users/Олег/Downloads/test.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    <!--</div>
+     <footer class="page-footer font-small col-md-12" style=" background-color: rgb(9, 61, 18);  left: 0; bottom: 0;">
+        <div class="container-fluid text-center text-md-left" style="color: yellow;">
+          <div class="row">
+              <div class="col-md-6" style="margin-top:3%;">
+                  <h5 class="text-uppercase">Правила дорожного движения 2019</h5>
+                  <p>Все права защищены</p>			  
+              </div>
+              <div class="col-md-3 mb-md-0 mb-3"></div>
+              <div class="col-md-3 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Links</h5>			  
+                <ul class="list-unstyled">
+                  <li>
+                    <a href="vk.com/id152568788">Я вконтакте</a>
+                  </li>
+                  <li>
+                    <a href="#">Пройти тест</a>
+                  </li>
+                  <li>
+                    <a href="#">Помочь проекту</a>
+                  </li>
+                  <li>
+                    <a href="index.php">На главную</a>
+                  </li>
+                </ul>		  
+              </div>	  
+          </div>
+        </div>
+        <div class="footer-copyright text-center py-3" style="margin:1%; color:yellow;">© 2019 Copyright:
+          <a href="index.php"> https://belorusovcreation.000webhostapp.com</a>
+        </div>
+</footer> -->
+</body>
+</html>

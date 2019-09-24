@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Main page</title>
+        <style type="text/css">
+            .1{
+                display:block;
+            }
+            .2{
+                display:none;
+            }
+            .3{
+                display:none;
+            }
+        </style>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script>
+            window.onload = function show_1(){
+                var a = document.getElementsByClassName('1');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "block"; }
+                a = document.getElementsByClassName('2');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+                a = document.getElementsByClassName('3');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+            }
+            function show_2(){
+                var a = document.getElementsByClassName('2');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "block"; }
+                a = document.getElementsByClassName('1');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+                a = document.getElementsByClassName('3');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+            }
+            function show_3(){
+                var a = document.getElementsByClassName('3');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "block"; }
+                a = document.getElementsByClassName('2');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+                a = document.getElementsByClassName('1');
+                for(var i=0; i<a.length; i++){ a[i].style.display = "none"; }
+            }
+
+            /*function test(){
+                localStorage.clear();
+                var type = document.getElementsByClassName("1"); //тип: изменение,добавление,удаление
+                var section = document.getElementById("news");//раздел: новости,разметка,знаки
+                var activeTab = {
+                    type: type,
+                    section: section
+                };
+                localStorage.setItem("activeTab",JSON.stringify(activeTab));
+            }
+
+            window.onload = function testLaunch(){
+                var savedTab = JSON.parse(localStorage.getItem("activeTab"));
+                if(savedTab == null){
+                    var type = document.getElementsByClassName("2");
+                    for(var i = 0; i < type.length; i++){
+                        type[i].style.display = 'block';
+                    }
+                    var section = document.getElementById("markup");
+                    var parent = section.parentNode;
+                    parent.setAttribute("class", "active");
+                }
+                else{
+                    var type = savedTab.type;
+                    var section = savedTab.section;
+                    for(var i = 0; i < type.length; i++){
+                        type[i].style.display = 'block;';
+                    }
+                    var parent = section.parentNode;
+                    parent.setAttribute("class", "active");
+                }
+            }*/
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9" style="border: 1px gray solid; border-radius: 10px;">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li><a href="#news" role="tab" data-toggle="pill">Новости</a></li><!--class="active" в <li>-->
+                        <li><a href="#markup" role="tab" data-toggle="pill">Разметка</a></li>
+                        <li><a href="#signs" role="tab" data-toggle="pill">Знаки</a></li>
+                        <li><a href="#users" role="tab" data-toggle="pill">Пользователи</a></li>
+                        <li><a href="#fines" role="tab" data-toggle="pill">Штрафы</a></li>
+                        <li><a href="#tickets" role="tab" data-toggle="pill">Билеты</a></li>
+                    </ul>
+                    <div class="tab-content" >
+                        <div role="tabpanel" class="tab-pane active" id="news" style="margin:2%;">
+                            <div class="1 text-center news" style="font-size: 150%; display:none;">
+                                Добавление новости
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                            <label for="pass" class="col-sm-2 control-label">Заголовок</label>
+                                            <div class="col-sm-10">
+                                                <input required type="text" class="form-control input-xs" id="add_news_title" placeholder="Введите текст" name="add_news_title" >
+                                            </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                            <label for="pass" class="col-sm-2 control-label">Тело</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control input-xs" id="add_news_text" placeholder="Введите текст статьи" name="add_news_text" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                            </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="inputDate" class="col-sm-2 control-label">Дата</label>
+                                        <div class="col-sm-10">
+                                            <input type="datetime-local" class="form-control input-xs" id="add_news_date" name="add_news_date" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="inputDate" class="col-sm-2 control-label">Автор</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control input-xs" name="people[]" required>
+                                                <option>Автор - 1</option>
+                                                <option>Автор - 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="inputDate" class="col-sm-2 control-label">Фото</label>
+                                        <div class="col-sm-10 text-center">
+                                            <input type="file" class="form-control input-xs text-center" style="border: 0px gray solid;" id="add_news_photo" name="add_news_photo" accept="image/png,image/jpeg,image/bmp,image/gif">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Опубликовать" name="add_news_submit" onclick="test();"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center news" style="font-size: 150%; margin-top:1%; display:none;">
+                                Изменить новость
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_news_title" placeholder="Введите информацию" name="set_news_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-warning">
+                                        <label for="inputDate" class="col-sm-2 control-label">Дата</label>
+                                        <div class="col-sm-10">
+                                            <input type="datetime-local" class="form-control input-xs" id="set_news_date" name="set_news_date" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <a href="#"><input type="submit" class="btn btn-warning" value="Изменить" name="set_news_submit"/></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center news" style="font-size: 150%; margin-top:1%; display:none;">
+                                Удалить новость
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_news_title" placeholder="Введите информацию" name="remove_news_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-danger">
+                                        <label for="inputDate" class="col-sm-2 control-label">Дата</label>
+                                        <div class="col-sm-10">
+                                            <input type="datetime-local" class="form-control input-xs" id="remove_news_date" name="remove_news_date" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_news_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="markup" style="margin:2%; display:none;">
+                            <div class="1 text-center markup" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Добавить тип разметки
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_typeofmarkup_title" placeholder="Введите название" name="add_typeofmarkup_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                            <label for="pass" class="col-sm-2 control-label">Описание</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control input-xs" id="add_typeofmarkup_text" placeholder="Введите описание" name="add_typeofmarkup_text" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_typeofmarkup_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="1 text-center" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%; display:none;">
+                                Добавить разметку
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_markup_title" placeholder="Введите название" name="add_markup_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Описание</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control input-xs" id="add_markup_text" placeholder="Введите описание" name="add_markup_text" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_markup_number" placeholder="Введите номер" name="add_markup_number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Тип</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control input-xs" name="typeofmarkups[]" required>
+                                                <option>Имя 1</option>
+                                                <option>Имя 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Картинка</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_markup_photo" placeholder="Введите ссылку на изображение" name="add_markup_photo">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_markup_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center markup" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%; display:none;">
+                                Изменить тип разметки
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_typeofmarkup_title" placeholder="Введите информацию" name="set_typeofmarkup_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <a href="#"><input type="submit" class="btn btn-warning" value="Изменить" name="set_typeofmarkup_submit"/></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center markup" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px; display:none;">
+                                Изменить разметку
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_markup_number" placeholder="Введите данные" name="set_markup_number" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_markup_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center markup" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%; display:none;">
+                                Удалить тип разметки
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_typeofmarkup_title" placeholder="Введите информацию" name="remove_typeofmarkup_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_typeofmarkup_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center markup" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px; display:none;">
+                                Удалить разметку
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_markup_number" placeholder="Введите данные" name="remove_markup_number" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_markup_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="signs" style="margin:2%;">
+                            <div class="1 text-center sign" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Добавить тип знака
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_typeofsign_title" placeholder="Введите название" name="add_typeofsign_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                            <label for="pass" class="col-sm-2 control-label">Описание</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control input-xs" id="add_typeofsign_text" placeholder="Введите описание" name="add_typeofsign_text" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_typeofsign_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="1 text-center sign" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Добавить знак
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_sign_title" placeholder="Введите название" name="add_sign_title" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Описание</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control input-xs" id="add_sign_text" placeholder="Введите описание" name="add_sign_text" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_sign_number" placeholder="Введите номер" name="add_sign_number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Тип</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control input-xs" name="typeofsigns[]" required>
+                                                <option>Имя 1</option>
+                                                <option>Имя 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="inputDate" class="col-sm-2 control-label">Картинка</label>
+                                        <div class="col-sm-10 text-center">
+                                            <input type="file" class="form-control input-xs text-center" style="border: 0px gray solid;" id="add_sign_photo" name="add_sign_photo" accept="image/png,image/jpeg,image/bmp,image/gif">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_sign_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center sign" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Изменить тип знака
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_typeofsigns_title" placeholder="Введите информацию" name="set_typeofsigns_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_typeofsigns_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center sign" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px;">
+                                Измениь знак
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_signs_number" placeholder="Введите данные" name="set_signs_number" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_signs_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center sign" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Удалить тип знака
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_typeofsigns_title" placeholder="Введите информацию" name="remove_typeofsigns_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_typeofsigns_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center sign" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px;">
+                                Удалить знак
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Номер</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_signs_number" placeholder="Введите данные" name="remove_signs_number" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_signs_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="users" style="margin:2%;">
+                            <div class="1 text-center user" style="font-size: 150%;">
+                                Добавить пользователя
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Логин</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_users_login" placeholder="Введите логин" name="add_users_login" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Пароль</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_users_password" placeholder="Введите пароль" name="add_users_password" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Имя</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_users_fname" placeholder="Введите имя" name="add_users_fname" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Фамилия</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_users_sname" placeholder="Введите фамилию" name="add_users_sname" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Почта</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_users_email" placeholder="Введите почту" name="add_users_email" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Админ</label>
+                                        <div class="col-sm-10 radio">
+                                            <select class="form-control input-xs" name="admin[]" required>
+                                                <option>Да</option>
+                                                <option>Нет</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_users_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center user" style="font-size: 150%; margin-top:1%;">
+                                Изменить пользователя
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Логин</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_users_login" placeholder="Введите данные" name="set_users_login" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_users_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center user" style="font-size: 150%; margin-top:1%;">
+                                Удалить пользователя
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Логин</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_users_login" placeholder="Введите данные" name="remove_users_login" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_users_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="fines" style="margin:2%;">
+                            <div class="1 text-center fine" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Добавить тип штрафа
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_typeoffine_title" placeholder="Введите название" name="add_typeoffine_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_typeoffine_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="1 text-center fine" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Добавить штраф
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">КоАП</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_fines_cao" placeholder="Введите статью" name="add_fines_cao" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Нарушение</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control input-xs" id="add_fines_offense" placeholder="Введите описание" name="add_fines_offense" style="min-width: 100%;max-width: 100%;" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Санкции</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="add_fines_sanctions" placeholder="Введите описание" name="add_fines_sanctions">
+                                        </div>
+                                    </div>
+                                    <div class="form-group has-success">
+                                        <label for="pass" class="col-sm-2 control-label">Тип</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control input-xs" name="typeoffines[]" required>
+                                                <option>Имя 1</option>
+                                                <option>Имя 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-success" value="Добавить" name="add_fines_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center fine" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Изменить тип штрафа
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_fines_title" placeholder="Введите название" name="set_fines_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_fines_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="2 text-center fine" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px;">
+                                Изменить штраф
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-warning">
+                                        <label for="pass" class="col-sm-2 control-label">КоАП</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="set_fines_login" placeholder="Введите данные" name="set_fines_login" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-warning" value="Изменить" name="set_fines_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center fine" style="font-size: 150%; border: 1px gray solid; border-radius:10px; margin-top:1%;">
+                                Удалить тип штрафа
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">Название</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_fines_title" placeholder="Введите название" name="remove_fines_title" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_fines_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="3 text-center fine" style="font-size: 150%; margin-top:1%; border: 1px gray solid; border-radius:10px;">
+                                Удалить штраф
+                                <form method="POST" action="admin_main.html" class="form-horizontal" style="margin: 1%;">
+                                    <div class="form-group has-danger">
+                                        <label for="pass" class="col-sm-2 control-label">КоАП</label>
+                                        <div class="col-sm-10">
+                                            <input required type="text" class="form-control input-xs" id="remove_fines_login" placeholder="Введите данные" name="remove_fines_login" >
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <input type="submit" class="btn btn-danger" value="Удалить" name="remove_fines_submit"/> 
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane " id="tickets" style="margin:2%;">
+                            <div class="1 ticket">
+                                Билеты добавить
+                            </div>
+                            <div class="2 ticket">
+                                Билеты изменить
+                            </div>
+                            <div class="3 ticket">
+                                Билеты удалить
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                        <!-- <div class="col-md-12" style="border: 1px gray solid; border-radius: 10px;">
+                            <p class="text-center">Общая информация</p>
+                            <div>
+                                <span class='glyphicon glyphicon-user'></span>Oleg Belorusov
+                            </div>
+                            <div>
+                                <small style='color:gray;'><span class='glyphicon glyphicon-calendar'></span>Время захода в админ-панель: 07-08-2018 12:51</small>
+                            </div>
+                            <div>
+                                <span class='glyphicon glyphicon-eye-open'></span>Просмотров за сегодня: <span class='badge'>1488</span>
+                            </div>
+                        </div> -->
+                    <div class="col-md-12" style="border: 0px gray solid; border-radius: 10px;" id="sideMenu">
+                        <ul class="list-group list-unstyled">
+                            <a href="#" class="list-group-item" onclick="show_1();"><li>Добавить</li></a>
+                            <a href="#" class="list-group-item" onclick="show_2();"><li>Изменить</li></a>
+                            <a href="#" class="list-group-item" onclick="show_3();"><li>Удалить</li></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
